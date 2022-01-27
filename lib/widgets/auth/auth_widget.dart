@@ -102,6 +102,9 @@ class _FormWidgetState extends State<_FormWidget> {
       border: OutlineInputBorder(),
       contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       isCollapsed: true,
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Color(0xFF01B4E4)),
+      ),
     );
     final errorText = this.errorText;
     return Column(
