@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themoviedb/theme/app_button_style.dart';
 
 class AuthWidget extends StatefulWidget {
   const AuthWidget({Key? key}) : super(key: key);
@@ -34,6 +35,7 @@ class _HeaderWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 25),
           _FormWidget(),
@@ -42,9 +44,19 @@ class _HeaderWidget extends StatelessWidget {
             'In order to use the editing and rating capabilities of TMDB, as well as get personal recommendations you will need to login to your account. If you do not have an account, registering for an account is free and simple.',
             style: textStyle,
           ),
+          TextButton(
+            onPressed: () {},
+            child: Text('Register'),
+            style: AppButtonStyle.linkButton,
+          ),
           SizedBox(height: 25),
           Text('If you signed up but didn`t get your verification email',
               style: textStyle),
+          TextButton(
+            onPressed: () {},
+            child: Text('Verify mail'),
+            style: AppButtonStyle.linkButton,
+          ),
         ],
       ),
     );
@@ -59,6 +71,18 @@ class _FormWidget extends StatefulWidget {
 }
 
 class _FormWidgetState extends State<_FormWidget> {
+  final _loginTextController = TextEditingController();
+  final _passwordTextController = TextEditingController();
+
+  void _auth() {
+    final login = _loginTextController;
+    final passwors = _passwordTextController;
+  }
+
+  void _resetPassword() {
+    print('Сбросить пароль');
+  }
+
   @override
   Widget build(BuildContext context) {
     final textStyle = const TextStyle(
@@ -78,19 +102,21 @@ class _FormWidgetState extends State<_FormWidget> {
         SizedBox(height: 5),
         TextField(
           decoration: textFieldDecoration,
+          controller: _loginTextController,
         ),
         SizedBox(height: 20),
         Text('Password', style: textStyle),
         SizedBox(height: 5),
         TextField(
           decoration: textFieldDecoration,
+          controller: _passwordTextController,
           obscureText: true,
         ),
-        SizedBox(height: 5),
+        SizedBox(height: 30),
         Row(
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: _auth,
               child: Text('Login'),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(color),
@@ -103,12 +129,9 @@ class _FormWidgetState extends State<_FormWidget> {
             ),
             SizedBox(width: 10),
             TextButton(
-              onPressed: () {},
+              onPressed: _resetPassword,
               child: Text('Reset password'),
-              style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(color),
-                  textStyle: MaterialStateProperty.all(
-                      TextStyle(fontSize: 16, fontWeight: FontWeight.w400))),
+              style: AppButtonStyle.linkButton,
             ),
           ],
         )
