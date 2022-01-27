@@ -73,10 +73,18 @@ class _FormWidget extends StatefulWidget {
 class _FormWidgetState extends State<_FormWidget> {
   final _loginTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
+  String? errorText;
 
   void _auth() {
-    final login = _loginTextController;
-    final passwors = _passwordTextController;
+    final login = _loginTextController.text;
+    final password = _passwordTextController.text;
+
+    if (login == 'admin' && password == 'admin') {
+      print('open app');
+      errorText = null;
+    } else
+      errorText = 'Неверный логин или пароль';
+    setState(() {});
   }
 
   void _resetPassword() {
@@ -89,15 +97,25 @@ class _FormWidgetState extends State<_FormWidget> {
       fontSize: 16,
       color: Color(0xFF212529),
     );
-    final color = Color(0xFF01B4E4);
+    final color = const Color(0xFF01B4E4);
     final textFieldDecoration = const InputDecoration(
       border: OutlineInputBorder(),
       contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       isCollapsed: true,
     );
+    final errorText = this.errorText;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if (errorText != null) ...[
+          Center(
+            child: Text(
+              errorText,
+              style: TextStyle(color: Colors.red, fontSize: 16),
+            ),
+          ),
+          SizedBox(height: 20),
+        ],
         Text('Username', style: textStyle),
         SizedBox(height: 5),
         TextField(
