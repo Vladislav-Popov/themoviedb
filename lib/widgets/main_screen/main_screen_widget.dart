@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:themoviedb/widgets/movie_list/movie_list_widget.dart';
 
 class MainScreenWidget extends StatefulWidget {
   const MainScreenWidget({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class _MainScreenWidgetState extends State<MainScreenWidget> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     Text('Home'),
-    Text('Movie'),
+    MovieListWidget(),
     Text('TV'),
   ];
 
