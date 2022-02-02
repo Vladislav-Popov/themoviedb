@@ -29,7 +29,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
       imageName: AppImages.moviePlacholder,
       title: 'Смертельная битва',
       time: 'April 7, 2021',
-      description: 'Описание адыаодывоа дв адываоы аыв а',
+      description: 'Описание адыаодывоа дв адываоы аыв',
     ),
     Movie(
       imageName: AppImages.moviePlacholder,
