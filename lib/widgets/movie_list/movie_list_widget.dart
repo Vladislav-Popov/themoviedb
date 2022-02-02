@@ -77,13 +77,13 @@ class _MovieListWidgetState extends State<MovieListWidget> {
       imageName: AppImages.moviePlacholder,
       title: 'Человек паук',
       time: 'April  7, 2021',
-      description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
+      description: 'Washed-up MMA fighter Cole Young',
     ),
     Movie(
       imageName: AppImages.moviePlacholder,
       title: 'Лига справедливости',
       time: 'April  7, 2021',
-      description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
+      description: 'Washed-up MMA fighter Cole Young',
     ),
     Movie(
       imageName: AppImages.moviePlacholder,
