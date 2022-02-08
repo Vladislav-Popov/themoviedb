@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:themoviedb/resources/resources.dart';
 
 class Movie {
+  final int id;
   final String imageName;
   final String title;
   final String time;
   final String description;
 
   Movie({
+    required this.id,
     required this.imageName,
     required this.title,
     required this.time,
@@ -26,102 +28,119 @@ class MovieListWidget extends StatefulWidget {
 class _MovieListWidgetState extends State<MovieListWidget> {
   final _movies = [
     Movie(
+      id: 1,
       imageName: AppImages.moviePlacholder,
       title: 'Смертельная битва',
       time: 'April 7, 2021',
       description: 'Описание адыаодывоа дв адываоы аыв а',
     ),
     Movie(
+      id: 2,
       imageName: AppImages.moviePlacholder,
       title: 'Смертельная битва',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young',
     ),
     Movie(
+      id: 3,
       imageName: AppImages.moviePlacholder,
       title: 'Прибытие',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young',
     ),
     Movie(
+      id: 4,
       imageName: AppImages.moviePlacholder,
       title: 'Назад в будущее 1',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 5,
       imageName: AppImages.moviePlacholder,
       title: 'Назад в будущее 2',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 6,
       imageName: AppImages.moviePlacholder,
       title: 'Назад в будущее 3',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 7,
       imageName: AppImages.moviePlacholder,
       title: 'Первому игроку приготовится',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 8,
       imageName: AppImages.moviePlacholder,
       title: 'Пиксели',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 9,
       imageName: AppImages.moviePlacholder,
       title: 'Человек паук',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 10,
       imageName: AppImages.moviePlacholder,
       title: 'Лига справедливости',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 11,
       imageName: AppImages.moviePlacholder,
       title: 'Человек из стали',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 12,
       imageName: AppImages.moviePlacholder,
       title: 'Мстители',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 13,
       imageName: AppImages.moviePlacholder,
       title: 'Форд против феррари',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 14,
       imageName: AppImages.moviePlacholder,
       title: 'Джентельмены',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 15,
       imageName: AppImages.moviePlacholder,
       title: 'Тихие зори',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 16,
       imageName: AppImages.moviePlacholder,
       title: 'В бой идут одни старики',
       time: 'April  7, 2021',
       description: 'Washed-up MMA fighter Cole Young, unaware of his heritage',
     ),
     Movie(
+      id: 17,
       imageName: AppImages.moviePlacholder,
       title: 'Дюна',
       time: 'April  7, 2021',
@@ -143,6 +162,14 @@ class _MovieListWidgetState extends State<MovieListWidget> {
       _filteredMovies = _movies;
     }
     setState(() {});
+  }
+
+  void _onMovieTap(int index) {
+    final id = _movies[index].id;
+    Navigator.of(context).pushNamed(
+      '/main_screen/movie_details',
+      arguments: id,
+    );
   }
 
   @override
@@ -231,9 +258,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
-                      onTap: () {
-                        print('$index');
-                      },
+                      onTap: () => _onMovieTap(index),
                     ),
                   ),
                 ],
