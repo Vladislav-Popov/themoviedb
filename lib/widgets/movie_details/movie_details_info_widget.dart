@@ -26,7 +26,10 @@ class MovieDetailsInfoWidget extends StatelessWidget {
           child: _DescriptionWidget(),
         ),
         SizedBox(height: 30),
-        _PeopleWidgets(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: _PeopleWidgets(),
+        ),
       ],
     );
   }
@@ -118,21 +121,21 @@ class _ScoreWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
+        SizedBox(
+          width: 60,
+          height: 60,
+          child: RadialPercentWidget(
+            percent: 0.72,
+            feelColor: Color.fromARGB(255, 10, 23, 25),
+            lineColor: Color.fromARGB(255, 37, 203, 103),
+            freeColor: Color.fromARGB(255, 25, 54, 31),
+            lineWidth: 3,
+          ),
+        ),
         TextButton(
           onPressed: () {},
           child: Row(
             children: [
-              SizedBox(
-                width: 50,
-                height: 50,
-                child: RadialPercentWidget(
-                  percent: 0.72,
-                  feelColor: Color.fromARGB(255, 10, 23, 25),
-                  lineColor: Color.fromARGB(255, 37, 203, 103),
-                  freeColor: Color.fromARGB(255, 25, 54, 31),
-                  lineWidth: 3,
-                ),
-              ),
               SizedBox(width: 10),
               Text('User Score'),
             ],
@@ -146,12 +149,12 @@ class _ScoreWidget extends StatelessWidget {
               Icon(Icons.play_arrow),
               SizedBox(
                 width: 10,
-                height: 50,
               ),
               Text('Play Trailer'),
             ],
           ),
         ),
+        SizedBox(width: 30)
       ],
     );
   }
@@ -200,7 +203,7 @@ class _PeopleWidgets extends StatelessWidget {
       children: [
         Row(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -221,7 +224,7 @@ class _PeopleWidgets extends StatelessWidget {
         SizedBox(height: 20),
         Row(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
