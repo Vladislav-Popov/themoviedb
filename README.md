@@ -1,5 +1,4 @@
 # themoviedb
-
 I am creating a Flutter (Dart) application. 
 Using the public API from https://www.themoviedb.org
 
