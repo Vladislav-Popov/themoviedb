@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:themoviedb/theme/app_colors.dart';
+import 'package:themoviedb/widgets/auth/auth_model.dart';
 import 'package:themoviedb/widgets/auth/auth_widget.dart';
 import 'package:themoviedb/widgets/main_screen/main_screen_widget.dart';
 import 'package:themoviedb/widgets/movie_details/movie_details_widget.dart';
@@ -24,7 +25,10 @@ class MyApp extends StatelessWidget {
             unselectedItemColor: Colors.grey,
           )),
       routes: {
-        '/auth': (context) => AuthWidget(),
+        '/auth': (context) => AuthProvider(
+              model: AuthModel(),
+              child: const AuthWidget(),
+            ),
         '/main_screen': (context) => MainScreenWidget(),
         '/main_screen/movie_details': (context) {
           final arguments = ModalRoute.of(context)?.settings.arguments;
