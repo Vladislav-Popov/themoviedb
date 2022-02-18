@@ -104,18 +104,18 @@ class _FormWidget extends StatelessWidget {
         SizedBox(height: 30),
         Row(
           children: [
-            // ElevatedButton(
-            //   onPressed: _auth,
-            //   child: Text('Login'),
-            //   style: ButtonStyle(
-            //     backgroundColor: MaterialStateProperty.all(color),
-            //     textStyle: MaterialStateProperty.all(
-            //         TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-            //     padding: MaterialStateProperty.all(
-            //       EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-            //     ),
-            //   ),
-            // ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text('Login'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(color),
+                textStyle: MaterialStateProperty.all(
+                    TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                padding: MaterialStateProperty.all(
+                  EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                ),
+              ),
+            ),
             SizedBox(width: 10),
             TextButton(
               onPressed: () {},
